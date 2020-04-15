@@ -137,8 +137,12 @@ export default {
       self.loaded = true;
     });
     this.initialize_plot()
-    // this.prepareDataset("RECOVERED")
-    // this.prepareDataset("DEATHS")
+    this.prepareDataset("RECOVERED", false).then(function(res) {
+      self.recovered_dataset = res["result"]
+    })
+    this.prepareDataset("DEATHS", false).then(function(res) {
+      self.deaths_dataset = res["result"]
+    })
   }
 };
 </script>
